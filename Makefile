@@ -1,28 +1,25 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
-AR = ar rcs
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-LIBFT_H= $(LIBFT_DIR)/libft.h 
+LIBFT_H = $(LIBFT_DIR)/libft.h
+
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
-MAIN_LOCATION = test/main.c
-
 all: $(NAME)
 
-$(NAME): build_libft $(OBJS) 
-	cp $(LIBFT) $(NAME)
-	$(AR) $(NAME) $(OBJS) 
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-%.o: %.c $(LIBFT_H)
+%.o: %.c push_swap.h $(LIBFT_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-build_libft:
+$(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
@@ -35,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re run build_libft
+.PHONY: all clean fclean re
