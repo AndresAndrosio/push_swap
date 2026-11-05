@@ -26,5 +26,8 @@ typedef struct s_list
 }   t_list;
 
 t_list	selection_sort(t_list a, t_list b);
+void	sa(t_list a);
+void	pa(t_list a);
+void	ra(t_list a);
 
 #endif
