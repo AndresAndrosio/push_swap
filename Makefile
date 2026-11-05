@@ -1,12 +1,13 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -I./libft
 RM = rm -f
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_H = $(LIBFT_DIR)/libft.h
+HEADER = ft_push_swap.h
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
@@ -16,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-%.o: %.c push_swap.h $(LIBFT_H)
+%.o: %.c $(HEADER) $(LIBFT_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
