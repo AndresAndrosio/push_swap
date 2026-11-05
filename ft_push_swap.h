@@ -6,15 +6,25 @@
 /*   By: jcervera <jcervera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:05:55 by jcervera          #+#    #+#             */
-/*   Updated: 2026/11/05 20:12:21 by jcervera         ###   ########.fr       */
+/*   Updated: 2026/11/05 20:34:52 by jcervera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP
+# define PUSH_SWAP
+
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft.h"
 
 
-typedef struct s_stack
+typedef struct s_list
 {
     int             value;
     struct s_stack  *next;
-}   t_stack;
+}   t_list;
 
+t_list	selection_sort(t_list a, t_list b);
+
+#endif
