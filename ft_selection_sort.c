@@ -6,7 +6,13 @@
 /*   By: jcervera <jcervera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:05:28 by jcervera          #+#    #+#             */
-/*   Updated: 2026/11/05 20:05:29 by jcervera         ###   ########.fr       */
+/*   Updated: 2026/11/05 20:20:18 by jcervera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_push_swap.h"
+
+t_stack	selection_sort(t_stack a, t_stack b)
+{
+	
+}
