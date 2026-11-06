@@ -6,7 +6,7 @@
 /*   By: arozados <arozados@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:05:55 by jcervera          #+#    #+#             */
-/*   Updated: 2026/11/06 13:28:27 by arozados         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:43:10 by arozados         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
+	struct s_stack	*before;
 }	t_stack;
 
 /* Stack utilities */
