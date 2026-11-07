@@ -44,9 +44,12 @@ t_stack	*selection_sort(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 
 /* Moves the first node of B to the top of A. */
-void	pa(t_stack **a, t_stack **b);
+int pa(t_stack **lst_a ,t_stack **lst_b );
 
 /* Moves the first node of A to the bottom of A. */
-void	rotate_a(t_stack **a);
+int ra(t_stack **lst);
+
+/* Moves the last node of A to the top of A. */
+int rra(t_stack **lst);
 
 #endif
