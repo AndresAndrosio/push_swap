@@ -40,8 +40,14 @@ t_stack	*selection_sort(t_stack **a, t_stack **b);
 
 /* Stack operations */
 
+/* Swaps the first two nodes of A. */
+int		sa(t_stack **lst);
+
+/* Swaps the first two nodes of B. */
+int		sb(t_stack **lst);
+
 /* Moves the first node of A to the top of B. */
-void	pb(t_stack **a, t_stack **b);
+int		pb(t_stack **lst_a, t_stack **lst_b);
 
 /* Moves the first node of B to the top of A. */
 int pa(t_stack **lst_a ,t_stack **lst_b );
@@ -51,5 +57,11 @@ int ra(t_stack **lst);
 
 /* Moves the last node of A to the top of A. */
 int rra(t_stack **lst);
+
+/* Moves the first node of B to the bottom of B. */
+int		rb(t_stack **lst);
+
+/* Moves the last node of B to the top of B. */
+int		rrb(t_stack **lst);
 
 #endif
