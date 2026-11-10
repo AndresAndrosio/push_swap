@@ -1,10 +1,10 @@
-TESTS = test_sa test_pa test_ra test_rra
+TESTS = test_sa test_pa test_ra test_rra test_sb test_pb test_rb test_rrb
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Wno-return-type -g -I.. -I../libft
 RM = rm -f
 
-COMMON_SRCS = ../movements/a.c ../utils/stack.c
+COMMON_SRCS = ../movements/a.c ../movements/b.c ../utils/stack.c
 
 all: test
 
@@ -13,6 +13,10 @@ test: $(TESTS)
 	./test_pa
 	./test_ra
 	./test_rra
+	./test_sb
+	./test_pb
+	./test_rb
+	./test_rrb
 
 test_sa: test_sa.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
 	$(CC) $(CFLAGS) test_sa.c $(COMMON_SRCS) -o $@
@@ -25,6 +29,18 @@ test_ra: test_ra.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
 
 test_rra: test_rra.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
 	$(CC) $(CFLAGS) test_rra.c $(COMMON_SRCS) -o $@
+
+test_sb: test_sb.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
+	$(CC) $(CFLAGS) test_sb.c $(COMMON_SRCS) -o $@
+
+test_pb: test_pb.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
+	$(CC) $(CFLAGS) test_pb.c $(COMMON_SRCS) -o $@
+
+test_rb: test_rb.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
+	$(CC) $(CFLAGS) test_rb.c $(COMMON_SRCS) -o $@
+
+test_rrb: test_rrb.c $(COMMON_SRCS) ../ft_push_swap.h ../libft/libft.h
+	$(CC) $(CFLAGS) test_rrb.c $(COMMON_SRCS) -o $@
 
 clean:
 	$(RM) $(TESTS)
