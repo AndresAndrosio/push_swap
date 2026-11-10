@@ -27,7 +27,13 @@ typedef struct s_stack
 
 /* Stack utilities */
 
-/* Add the node or new node to the list */
+/**
+* Create the first node or add a new node at the end of the linked list
+* @param lst list that will recieve a new node
+* @param value number, which will be owned by the new node
+* @return -1: it wasn't complete successfully or the index where it was add.
+*
+*/
 ssize_t add_node(t_stack **lst,int value);
 
 /* Returns the number of nodes in a stack. */
@@ -43,28 +49,62 @@ t_stack	*selection_sort(t_stack **a, t_stack **b);
 
 /* Stack operations */
 
-/* Swaps the first two nodes of A. */
+/**
+ * Swaps the first two elements of stack A
+ * @param lst a list
+ * @return 0: fail (NULL params, less than two elements, etc) 1: success
+ */
 int		sa(t_stack **lst);
 
-/* Swaps the first two nodes of B. */
+/**
+ * Swaps the first two elements of stack B
+ * @param lst a list
+ * @return 0: fail (NULL params, less than two elements, etc) 1: success
+ */
 int		sb(t_stack **lst);
 
-/* Moves the first node of A to the top of B. */
+/**
+ * Moves the first element of A to the first position of B
+ * @param lst_a stack A
+ * @param lst_b stack B
+ * @return 0: fail (NULL params, empty A, etc) 1: success
+ */
 int		pb(t_stack **lst_a, t_stack **lst_b);
 
-/* Moves the first node of B to the top of A. */
+/**
+ * Moves the first element of B to the first position of A
+ * @param lst_a stack A
+ * @param lst_b stack B
+ * @return 0: fail (NULL params, empty B, etc) 1: success
+ */
 int pa(t_stack **lst_a ,t_stack **lst_b );
 
-/* Moves the first node of A to the bottom of A. */
+/**
+ * Moves the first element to the last position
+ * @param lst a list
+ * @return 0: fail (NULL params, less than two elements, etc) 1: success
+ */
 int ra(t_stack **lst);
 
-/* Moves the last node of A to the top of A. */
+/**
+ * The last element go to first position
+ * @param lst a list
+ * @return 0:fail (NULL params, its not the first element, etc) 1:sucess
+ */
 int rra(t_stack **lst);
 
-/* Moves the first node of B to the bottom of B. */
+/**
+ * Moves the first element to the last position
+ * @param lst a list
+ * @return 0: fail (NULL params, less than two elements, etc) 1: success
+ */
 int		rb(t_stack **lst);
 
-/* Moves the last node of B to the top of B. */
+/**
+ * Moves the last element to the first position
+ * @param lst a list
+ * @return 0: fail (NULL params, less than two elements, etc) 1: success
+ */
 int		rrb(t_stack **lst);
 
 #endif

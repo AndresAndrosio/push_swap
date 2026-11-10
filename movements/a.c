@@ -17,9 +17,7 @@ int sa(t_stack **lst ){
     *lst=second_ele;
     return 1;
 }
-/**
- * first element of b go to first element of a
- */
+
 int pa(t_stack **lst_a ,t_stack **lst_b ){
     t_stack *first_node_b;
     t_stack *first_node_a;
@@ -39,9 +37,7 @@ int pa(t_stack **lst_a ,t_stack **lst_b ){
     first_node_b->next=first_node_a;
     return 1;
 }
-/**
- * the first go to last position
- */
+
 int ra(t_stack **lst)
 {
     t_stack *last_node;
@@ -63,9 +59,7 @@ int ra(t_stack **lst)
     first_node->before=last_node;
     return 1;
 }
-/**
- * the last element go to first position
- */
+
 int rra(t_stack **lst)
 {
     t_stack *last_node;
