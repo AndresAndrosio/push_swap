@@ -42,7 +42,7 @@ t_stack	*selection_sort(t_stack **a, t_stack **b)
 	{
 		min = find_min(*a);
 		while (*a != min)
-			rotate_a(a);
+			ra(a);
 		pb(a, b);
 		i++;
 	}
