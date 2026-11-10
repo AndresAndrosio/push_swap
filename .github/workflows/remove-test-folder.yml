@@ -10,8 +10,10 @@ permissions:
 
 jobs:
   remove-test:
-    # Evita intentar escribir en ramas procedentes de forks
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    # Solo PR dirigidas a main y procedentes del mismo repositorio
+    if: |
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.head.repo.full_name == github.repository
 
     runs-on: ubuntu-latest
 
