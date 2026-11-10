@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcervera <jcervera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: arozados <arozados@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:05:28 by jcervera          #+#    #+#             */
 /*   Updated: 2026/11/05 21:32:28 by jcervera         ###   ########.fr       */
@@ -30,7 +30,7 @@ t_stack	*find_min(t_stack *stack)
 	return (min);
 }
 
-t_stack	*selection_sort(t_stack **a, t_stack **b)
+t_stack	*selection_sort(t_stack **a, t_stack **b, int *operation_amount)
 {
 	t_stack	*min;
 	int		i;
@@ -42,11 +42,18 @@ t_stack	*selection_sort(t_stack **a, t_stack **b)
 	{
 		min = find_min(*a);
 		while (*a != min)
-			rotate_a(a);
-		pb(a, b);
+		{
+			ra(a,operation_amount);
+			ft_putendl_fd("ra",1);
+		}
+		pb(a, b, operation_amount);
+		ft_putendl_fd("pb",1);
 		i++;
 	}
 	while (*b != NULL)
-		pa(a, b);
+	{
+		pa(a, b,operation_amount);
+		ft_putendl_fd("pa",1);
+	}
 	return (*a);
 }
