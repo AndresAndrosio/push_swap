@@ -12,6 +12,8 @@
 
 #include "ft_push_swap.h"
 
+
+
 int main(void)
 {
 	write(1,"Prueba de compilacion",sizeof("Prueba de compilacion"));

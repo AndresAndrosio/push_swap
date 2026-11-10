@@ -27,6 +27,9 @@ typedef struct s_stack
 
 /* Stack utilities */
 
+/* Add the node or new node to the list */
+ssize_t add_node(t_stack **lst,int value);
+
 /* Returns the number of nodes in a stack. */
 int		lstsize(t_stack *stack);
 
