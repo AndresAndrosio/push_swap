@@ -44,8 +44,14 @@ t_stack	*find_min(t_stack *stack);
 
 /* Sorting algorithms */
 
-/* Sorts stack A using stack B as auxiliary storage. */
-t_stack	*selection_sort(t_stack **a, t_stack **b);
+/**
+* Sorts stack A using stack B as auxiliary storage. 
+* @param a pointer to stack A
+* @param b pointer to stack B
+* @param operation_amount pointer to the number of operations that has been done in the process of sorting.
+* @return pointer to the sorted stack A
+*/
+t_stack	*selection_sort(t_stack **a, t_stack **b, int *operation_amount);
 
 /* Stack operations */
 
@@ -54,14 +60,14 @@ t_stack	*selection_sort(t_stack **a, t_stack **b);
  * @param lst a list
  * @return 0: fail (NULL params, less than two elements, etc) 1: success
  */
-int		sa(t_stack **lst);
+int		sa(t_stack **lst, int *operation_amount);
 
 /**
  * Swaps the first two elements of stack B
  * @param lst a list
  * @return 0: fail (NULL params, less than two elements, etc) 1: success
  */
-int		sb(t_stack **lst);
+int		sb(t_stack **lst, int *operation_amount);
 
 /**
  * Moves the first element of A to the first position of B
@@ -69,7 +75,7 @@ int		sb(t_stack **lst);
  * @param lst_b stack B
  * @return 0: fail (NULL params, empty A, etc) 1: success
  */
-int		pb(t_stack **lst_a, t_stack **lst_b);
+int		pb(t_stack **lst_a, t_stack **lst_b, int *operation_amount);
 
 /**
  * Moves the first element of B to the first position of A
@@ -77,34 +83,34 @@ int		pb(t_stack **lst_a, t_stack **lst_b);
  * @param lst_b stack B
  * @return 0: fail (NULL params, empty B, etc) 1: success
  */
-int pa(t_stack **lst_a ,t_stack **lst_b );
+int pa(t_stack **lst_a ,t_stack **lst_b, int *operation_amount);
 
 /**
  * Moves the first element to the last position
  * @param lst a list
  * @return 0: fail (NULL params, less than two elements, etc) 1: success
  */
-int ra(t_stack **lst);
+int ra(t_stack **lst, int *operation_amount);
 
 /**
  * The last element go to first position
  * @param lst a list
  * @return 0:fail (NULL params, its not the first element, etc) 1:sucess
  */
-int rra(t_stack **lst);
+int rra(t_stack **lst, int *operation_amount);
 
 /**
  * Moves the first element to the last position
  * @param lst a list
  * @return 0: fail (NULL params, less than two elements, etc) 1: success
  */
-int		rb(t_stack **lst);
+int		rb(t_stack **lst, int *operation_amount);
 
 /**
- * Moves the last element to the first position
+ * Moves the last element to the first position.
  * @param lst a list
  * @return 0: fail (NULL params, less than two elements, etc) 1: success
  */
-int		rrb(t_stack **lst);
+int		rrb(t_stack **lst, int *operation_amount);
 
 #endif

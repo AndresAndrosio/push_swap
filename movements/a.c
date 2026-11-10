@@ -1,5 +1,5 @@
 #include "../ft_push_swap.h"
-int sa(t_stack **lst ){
+int sa(t_stack **lst, int *operation_amount ){
     t_stack *first_ele;
     t_stack *second_ele;
     if(!lst || !*lst)
@@ -15,10 +15,11 @@ int sa(t_stack **lst ){
     second_ele->before=NULL;
     second_ele->next=first_ele;
     *lst=second_ele;
+    (*operation_amount)++;
     return 1;
 }
 
-int pa(t_stack **lst_a ,t_stack **lst_b ){
+int pa(t_stack **lst_a ,t_stack **lst_b, int *operation_amount){
     t_stack *first_node_b;
     t_stack *first_node_a;
     
@@ -35,10 +36,11 @@ int pa(t_stack **lst_a ,t_stack **lst_b ){
     if(*lst_b)
         (*lst_b)->before=NULL;
     first_node_b->next=first_node_a;
+    (*operation_amount)++;
     return 1;
 }
 
-int ra(t_stack **lst)
+int ra(t_stack **lst, int *operation_amount)
 {
     t_stack *last_node;
     t_stack *first_node;
@@ -57,10 +59,11 @@ int ra(t_stack **lst)
     (*lst)->before=NULL;
     first_node->next=NULL;
     first_node->before=last_node;
+    (*operation_amount)++;
     return 1;
 }
 
-int rra(t_stack **lst)
+int rra(t_stack **lst, int *operation_amount)
 {
     t_stack *last_node;
     t_stack *first_node;
@@ -79,5 +82,6 @@ int rra(t_stack **lst)
     last_node->next=first_node;
     last_node->before=NULL;
     *lst=last_node;
+    (*operation_amount)++;
     return 1;
 }

@@ -58,8 +58,10 @@ static void	test_null_stack_pointer(void)
 
 	stack_a=NULL;
 	stack_b=NULL;
-	assert(pa(NULL, &stack_b) == 0);
-	assert(pa(&stack_a, NULL) == 0);
+	int		operation_amount = 0;
+
+	assert(pa(NULL, &stack_b, &operation_amount) == 0);
+	assert(pa(&stack_a, NULL, &operation_amount) == 0);
 	assert(stack_a == NULL);
 	assert(stack_b == NULL);
 	print_success("pa safely rejects null stack pointers.");
@@ -75,7 +77,9 @@ static void	test_empty_source_stack(void)
 	stack_b=NULL;
 	add_value(&stack_a, 10, 0);
 	add_value(&stack_a, 20, 1);
-	assert(pa(&stack_a, &stack_b) == 0);
+	int		operation_amount = 0;
+
+	assert(pa(&stack_a, &stack_b, &operation_amount) == 0);
 	assert_stack(stack_a, values_a, 2);
 	assert(stack_b == NULL);
 	free_stack(&stack_a);
@@ -91,7 +95,9 @@ static void	test_move_to_empty_stack(void)
 	stack_a=NULL;
 	stack_b=NULL;
 	add_value(&stack_b, 7, 0);
-	assert(pa(&stack_a, &stack_b) == 1);
+	int		operation_amount = 0;
+
+	assert(pa(&stack_a, &stack_b, &operation_amount) == 1);
 	assert_stack(stack_a, values_a, 1);
 	assert(stack_b == NULL);
 	free_stack(&stack_a);
@@ -109,7 +115,9 @@ static void	test_move_to_nonempty_stack(void)
 	add_value(&stack_a, 2, 0);
 	add_value(&stack_a, 3, 1);
 	add_value(&stack_b, 1, 0);
-	assert(pa(&stack_a, &stack_b) == 1);
+	int		operation_amount = 0;
+
+	assert(pa(&stack_a, &stack_b, &operation_amount) == 1);
 	assert_stack(stack_a, values_a, 3);
 	assert(stack_b == NULL);
 	free_stack(&stack_a);
@@ -130,7 +138,9 @@ static void	test_preserve_remaining_source_nodes(void)
 	add_value(&stack_b, 1, 0);
 	add_value(&stack_b, 2, 1);
 	add_value(&stack_b, 3, 2);
-	assert(pa(&stack_a, &stack_b) == 1);
+	int		operation_amount = 0;
+
+	assert(pa(&stack_a, &stack_b, &operation_amount) == 1);
 	assert_stack(stack_a, values_a, 3);
 	assert_stack(stack_b, values_b, 2);
 	free_stack(&stack_a);
@@ -152,7 +162,9 @@ static void	test_source_head_with_previous_node(void)
 	add_value(&stack_b, 30, 1);
 	first_b=stack_b;
 	first_b->before=first_b;
-	assert(pa(&stack_a, &stack_b) == 0);
+	int		operation_amount = 0;
+
+	assert(pa(&stack_a, &stack_b, &operation_amount) == 0);
 	assert_stack(stack_a, values_a, 1);
 	assert(stack_b == first_b);
 	assert(first_b->value == 20);

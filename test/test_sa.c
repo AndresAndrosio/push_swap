@@ -53,7 +53,9 @@ static void	free_stack(t_stack **stack)
 
 static void	test_null_stack_pointer(void)
 {
-	assert(sa(NULL) == 0);
+	int		operation_amount = 0;
+
+	assert(sa(NULL, &operation_amount) == 0);
 	print_success("sa safely rejects a null stack pointer.");
 }
 
@@ -62,7 +64,9 @@ static void	test_empty_stack(void)
 	t_stack	*stack;
 
 	stack=NULL;
-	assert(sa(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(sa(&stack, &operation_amount) == 0);
 	assert(stack == NULL);
 	print_success("sa leaves an empty stack unchanged.");
 }
@@ -74,7 +78,9 @@ static void	test_single_node_stack(void)
 
 	stack=NULL;
 	add_value(&stack, 42, 0);
-	assert(sa(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(sa(&stack, &operation_amount) == 0);
 	assert_stack(stack, values, 1);
 	free_stack(&stack);
 	print_success("sa leaves a single-node stack unchanged.");
@@ -88,7 +94,9 @@ static void	test_two_node_stack(void)
 	stack=NULL;
 	add_value(&stack, 10, 0);
 	add_value(&stack, 20, 1);
-	assert(sa(&stack) == 1);
+	int		operation_amount = 0;
+
+	assert(sa(&stack, &operation_amount) == 1);
 	assert_stack(stack, values, 2);
 	free_stack(&stack);
 	print_success("sa swaps the first two nodes in a two-node stack.");
@@ -104,7 +112,9 @@ static void	test_multi_node_stack(void)
 	add_value(&stack, 20, 1);
 	add_value(&stack, 30, 2);
 	add_value(&stack, 40, 3);
-	assert(sa(&stack) == 1);
+	int		operation_amount = 0;
+
+	assert(sa(&stack, &operation_amount) == 1);
 	assert_stack(stack, values, 4);
 	free_stack(&stack);
 	print_success("sa swaps the first two nodes and preserves the remaining links.");
@@ -120,7 +130,9 @@ static void	test_head_with_previous_node(void)
 	add_value(&stack, 20, 1);
 	first=stack;
 	first->before=first;
-	assert(sa(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(sa(&stack, &operation_amount) == 0);
 	assert(stack == first);
 	assert(first->value == 10);
 	assert(first->next->value == 20);

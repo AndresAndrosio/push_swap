@@ -53,7 +53,9 @@ static void	free_stack(t_stack **stack)
 
 static void	test_null_stack_pointer(void)
 {
-	assert(rb(NULL) == 0);
+	int		operation_amount = 0;
+
+	assert(rb(NULL, &operation_amount) == 0);
 	print_success("rb safely rejects a null stack pointer.");
 }
 
@@ -62,7 +64,9 @@ static void	test_empty_stack(void)
 	t_stack	*stack;
 
 	stack=NULL;
-	assert(rb(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(rb(&stack, &operation_amount) == 0);
 	assert(stack == NULL);
 	print_success("rb leaves an empty stack unchanged.");
 }
@@ -74,7 +78,9 @@ static void	test_single_node_stack(void)
 
 	stack=NULL;
 	add_value(&stack, 42, 0);
-	assert(rb(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(rb(&stack, &operation_amount) == 0);
 	assert_stack(stack, values, 1);
 	free_stack(&stack);
 	print_success("rb leaves a single-node stack unchanged.");
@@ -88,7 +94,9 @@ static void	test_two_node_stack(void)
 	stack=NULL;
 	add_value(&stack, 10, 0);
 	add_value(&stack, 20, 1);
-	assert(rb(&stack) == 1);
+	int		operation_amount = 0;
+
+	assert(rb(&stack, &operation_amount) == 1);
 	assert_stack(stack, values, 2);
 	free_stack(&stack);
 	print_success("rb moves the first node to the bottom of a two-node stack.");
@@ -104,7 +112,9 @@ static void	test_multi_node_stack(void)
 	add_value(&stack, 20, 1);
 	add_value(&stack, 30, 2);
 	add_value(&stack, 40, 3);
-	assert(rb(&stack) == 1);
+	int		operation_amount = 0;
+
+	assert(rb(&stack, &operation_amount) == 1);
 	assert_stack(stack, values, 4);
 	free_stack(&stack);
 	print_success("rb moves the first node to the bottom and preserves all links.");
@@ -120,7 +130,9 @@ static void	test_head_with_previous_node(void)
 	add_value(&stack, 20, 1);
 	first=stack;
 	first->before=first;
-	assert(rb(&stack) == 0);
+	int		operation_amount = 0;
+
+	assert(rb(&stack, &operation_amount) == 0);
 	assert(stack == first);
 	assert(first->value == 10);
 	assert(first->next->value == 20);
