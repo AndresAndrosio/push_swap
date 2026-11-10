@@ -53,10 +53,7 @@ ssize_t add_node(t_stack **lst,int value)
 	last_node=*lst;
 	index=0;
 	while(last_node->next)
-	{
-		last_node=last_node->next;
-		index++;
-	}
+		(last_node=last_node->next,index++);
 	new_node->before=last_node;
 	last_node->next=new_node;
 	return index+1;
