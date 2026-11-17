@@ -25,6 +25,19 @@ typedef struct s_stack
 	struct s_stack	*before;
 }	t_stack;
 
+/* arg utilities*/
+
+/**
+ * Indicate whether the received arguments are valid.
+ * Print 'Error' when its necessary
+ * @return 1: if everything is right return. 0: if something has
+ */
+int check_arg(int argc,char *argv[]);
+/**
+ * 
+ */
+t_stack **parser(int argc,char *argv[],t_stack **a);
+
 /* Stack utilities */
 
 /**

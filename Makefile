@@ -8,9 +8,11 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_H = $(LIBFT_DIR)/libft.h
 LST_FUNC_DIR = lst_funcs
+MOVEMENT_DIR = movements
 HEADER = ft_push_swap.h
 
-SRCS = $(wildcard *.c) $(wildcard $(LST_FUNC_DIR)/*.c)
+SRCS = $(wildcard *.c) $(wildcard $(LST_FUNC_DIR)/*.c) \
+	$(wildcard $(MOVEMENT_DIR)/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
