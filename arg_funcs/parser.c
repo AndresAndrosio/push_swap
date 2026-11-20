@@ -43,7 +43,7 @@ t_stack **parser(int argc,char *argv[],t_stack **a)
                 {
                     num_end_at=&argv[i_arg][i_char+1];
                     add_node(a,strtoint(num_start_at,num_end_at));
-                    (num_start_at=NULL, num_end_at=NULL);
+                    num_start_at=NULL;
                 }
             i_char++;
         }

@@ -9,10 +9,12 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_H = $(LIBFT_DIR)/libft.h
 LST_FUNC_DIR = lst_funcs
 MOVEMENT_DIR = movements
+ARG_FUNC_DIR = arg_funcs
 HEADER = ft_push_swap.h
 
 SRCS = $(wildcard *.c) $(wildcard $(LST_FUNC_DIR)/*.c) \
-	$(wildcard $(MOVEMENT_DIR)/*.c)
+	$(wildcard $(MOVEMENT_DIR)/*.c) \
+	$(wildcard $(ARG_FUNC_DIR)/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

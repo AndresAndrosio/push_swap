@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
-
+#include <limits.h>
 typedef struct s_stack
 {
 	int				value;
@@ -33,10 +33,62 @@ typedef struct s_stack
  * @return 1: if everything is right return. 0: if something has
  */
 int check_arg(int argc,char *argv[]);
-/**
- * 
- */
+
 t_stack **parser(int argc,char *argv[],t_stack **a);
+/**
+ * Convert a string to a long integer.
+ * @param begin_at: pointer to the beginning of the string
+ * @param end_at: pointer to the next character after the last character of the string
+ * @return long: the converted long integer
+ */
+long strtolong(char *begin_at,char *end_at);
+
+/**
+ * this function check if argv contain only spaces or is empty
+ * @param argc: amount of arguments
+ * @param argv: arguments
+ * @param i_arg: the index of the argument to start checking
+ * @param i_char: the index of the character to start checking
+ * @return 1: argv contain only spaces or is empty, 0: argv contain
+ */
+int find_num_in_argv(char *argv[],long num,int i_arg,int i_char);
+
+/** 
+ * Check if argv contain prohibited characters.
+ * @param argc: amount of arguments
+ * @param argv: arguments
+ * @return 1: argv contain prohibited characters, 0: argv contain only allowed characters
+ */
+int contain_prohibit_char(int argc,const char *argv[]);
+
+/**
+ * Check if argv contain wrong numbers like: - -1231-2, - +21343, + +-21314, --1231, -+21343, ++-21314 + -
+ * @param argc: amount of arguments
+ * @param argv: arguments
+ * @return char*: when argv contain wrong numbers like: - -1231-2 - +21343 + +-21314 --1231 -+21343 ++-21314 + -
+ * NULL: when argv contain good numbers like: -1234 or +1234 [no space and only one sign and before sign atleast one space firtst element is not included]
+ */
+char * wrong_number_format(int argc,char *argv[]);
+
+/**
+ * check if argv contain only int numbers.
+ * @return 1: argv contain only int numbers, 0: argv contain a number bigger than INT_MAX or smaller than INT_MIN
+ */
+int have_only_int_nums(int argc,char *argv[]);
+/**
+ * Check if argv contain duplicated numbers.
+ * @param argc: amount of arguments
+ * @param argv: arguments
+ * @return 1: argv contain duplicated numbers, 0: argv contain unique numbers
+ */
+int number_duplicated(int argc,char *argv[]);
+/**
+ * Check if argv contain only empty arguments.
+ * @param argc: amount of arguments
+ * @param argv: arguments
+ * @return 1: argv contain only empty arguments, 0: argv contain at least one non-empty argument
+ */
+int is_empty_arg(int argc,char *argv[]);
 
 /* Stack utilities */
 
