@@ -1,6 +1,6 @@
 
 TESTS = test_sa test_pa test_ra test_rra test_sb test_pb test_rb test_rrb \
-        test_selection_sort test_arg_checker
+        test_selection_sort test_arg_checker test_arg_parser
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Wno-return-type -g -I.. -I../libft
@@ -8,12 +8,13 @@ RM = rm -f
 
 COMMON_SRCS = ../movements/a.c \
               ../movements/b.c \
-              ../lst_funcs/add_node.c
+              ../lst_funcs/add_node.c \
+			  ../lst_funcs/lstsize.c \
+			  ../lst_funcs/clear_lst.c
 
 COMMON_SRCS += $(wildcard ../arg_funcs/*.c)
 
-SELECTION_SRCS = ../selection_sort.c \
-                 ../lst_funcs/lstsize.c
+SELECTION_SRCS = ../selection_sort.c
 
 LIBFT = ../libft/libft.a
 
@@ -30,8 +31,9 @@ test: $(TESTS)
 	./test_pb
 	./test_rb
 	./test_rrb
-	./test_selection_sort
 	./test_arg_checker
+	./test_arg_parser
+	./test_selection_sort
 
 test_sa test_pa test_ra test_rra test_sb test_pb test_rb test_rrb: %: %.c $(COMMON_SRCS) $(HEADERS) $(LIBFT)
 	$(CC) $(CFLAGS) $< $(COMMON_SRCS) $(LIBFT) -o $@
@@ -40,6 +42,9 @@ test_selection_sort: test_selection_sort.c $(COMMON_SRCS) $(SELECTION_SRCS) $(HE
 	$(CC) $(CFLAGS) $< $(COMMON_SRCS) $(SELECTION_SRCS) $(LIBFT) -o $@
 
 test_arg_checker: test_arg_checker.c $(COMMON_SRCS) $(HEADERS) $(LIBFT)
+	$(CC) $(CFLAGS) $< $(COMMON_SRCS) $(LIBFT) -o $@
+
+test_arg_parser: test_arg_parser.c $(COMMON_SRCS) $(HEADERS) $(LIBFT)
 	$(CC) $(CFLAGS) $< $(COMMON_SRCS) $(LIBFT) -o $@
 
 $(LIBFT):

@@ -101,6 +101,13 @@ int is_empty_arg(int argc,char *argv[]);
 */
 ssize_t add_node(t_stack **lst,int value);
 
+/**
+ * Free all the nodes in a linked list and set the pointer to NULL.
+ * @param lst pointer to the head of the linked list
+ * @return 1: the list was cleared successfully
+ */
+int clear_lst(t_stack **lst);
+
 /* Returns the number of nodes in a stack. */
 int		lstsize(t_stack *stack);
 
