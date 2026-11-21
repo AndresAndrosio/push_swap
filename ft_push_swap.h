@@ -30,7 +30,7 @@ typedef struct s_stack
 /**
  * Indicate whether the received arguments are valid.
  * Print 'Error' when its necessary
- * @return 1: if everything is right return. 0: if something has
+ * @return 1: if everything is right. 0: if something has gone wrong.
  */
 int check_arg(int argc,char *argv[]);
 

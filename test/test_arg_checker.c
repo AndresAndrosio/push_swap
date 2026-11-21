@@ -234,7 +234,53 @@ static void	test_all_arguments_contain_only_spaces(void)
 	assert_check_arg(4, argv, 0);
 	print_success("check_arg rejects arguments containing only whitespace.");
 }
+#include <limits.h>
 
+/* Integer limits */
+
+static void	test_int_max(void)
+{
+	char argv[3][32];
+	char *args[] = {"push_swap", argv[1], NULL};
+
+	snprintf(argv[1], sizeof(argv[1]), "%d", INT_MAX);
+
+	assert_check_arg(2, args, 1);
+	print_success("check_arg accepts INT_MAX.");
+}
+
+static void	test_int_min(void)
+{
+	char argv[3][32];
+	char *args[] = {"push_swap", argv[1], NULL};
+
+	snprintf(argv[1], sizeof(argv[1]), "%d", INT_MIN);
+
+	assert_check_arg(2, args, 1);
+	print_success("check_arg accepts INT_MIN.");
+}
+
+static void	test_overflow_int_max(void)
+{
+	char number[32];
+	char *argv[] = {"push_swap", number, NULL};
+
+	snprintf(number, sizeof(number), "%lld", (long long)INT_MAX + 1);
+
+	assert_check_arg(2, argv, 0);
+	print_success("check_arg rejects INT_MAX + 1.");
+}
+
+static void	test_underflow_int_min(void)
+{
+	char number[32];
+	char *argv[] = {"push_swap", number, NULL};
+
+	snprintf(number, sizeof(number), "%lld", (long long)INT_MIN - 1);
+
+	assert_check_arg(2, argv, 0);
+	print_success("check_arg rejects INT_MIN - 1.");
+}
 int	main(void)
 {
 	printf("Starting integration tests for check_arg...\n\n");
@@ -269,6 +315,10 @@ int	main(void)
 	test_all_arguments_are_empty();
 	test_all_arguments_contain_only_spaces();
 
+	test_int_max();
+	test_int_min();
+	test_overflow_int_max();
+	test_underflow_int_min();
 	printf("\nAll check_arg tests passed!\n");
 	return 0;
 }
