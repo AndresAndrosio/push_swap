@@ -40,7 +40,7 @@ t_stack	*selection_sort(t_stack **a, t_stack **b)
 		size_a = lstsize(*a);
 		size_b = lstsize(*b);
 		best = find_best_move(*a, *b, size_a, size_b);
-		fn.fwd = rotate_a;
+		fn.fwd = ra;
 		fn.bwd = rra;
 		move_to_top(a, best.idx_a, size_a, fn);
 		fn.fwd = rb;

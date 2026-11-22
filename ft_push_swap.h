@@ -76,7 +76,7 @@ void	pb(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 
 /* Moves the first node of A to the bottom of A. */
-void	rotate_a(t_stack **a);
+void	ra(t_stack **a);
 
 /* Moves the last node of A to the top of A. */
 void	rra(t_stack **a);

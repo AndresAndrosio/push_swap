@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-void	rotate_a(t_stack **a)
+void	ra(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
