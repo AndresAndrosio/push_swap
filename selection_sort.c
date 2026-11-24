@@ -11,7 +11,16 @@
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
+/**
+ * Moves everything from B back to A. First rotates B so its maximum is
+ * on top, then applies pa until B is empty. Since B is descending,
+ * A ends up in ascending order.
+ * Static: only used inside this file.
+ *
+ * @param a  Address of the head of stack A.
+ * @param b  Address of the head of stack B.
+ * @return   Nothing. Emits rb/rrb and pa operations as a side effect.
+ */
 static void	unload_b(t_stack **a, t_stack **b)
 {
 	t_rot_fn	fn;
