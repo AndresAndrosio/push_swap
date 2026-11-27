@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcervera <jcervera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: arozados <arozados@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 20:05:28 by jcervera          #+#    #+#             */
 /*   Updated: 2026/11/10 00:00:00 by jcervera         ###   ########.fr       */
@@ -37,7 +37,7 @@ static void	unload_b(t_stack **a, t_stack **b)
 		pa(a, b);
 }
 
-t_stack	*selection_sort(t_stack **a, t_stack **b)
+t_stack	*selection_sort(t_stack **a, t_stack **b, int *operation_amount)
 {
 	int			size_a;
 	int			size_b;
